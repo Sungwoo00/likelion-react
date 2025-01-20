@@ -1,10 +1,10 @@
 import './app.css';
-import Playground from '../playground.tsx';
+import Playground from '../playgrounds/01-chip-list.tsx';
 
 function App() {
   return (
     <div className="App">
-      <Playground></Playground>
+      <Playground />
     </div>
   );
 }
