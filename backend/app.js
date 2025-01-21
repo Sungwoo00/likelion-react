@@ -86,7 +86,7 @@ app.post('/api/signup', async (request, response) => {
   }
 });
 
-app.get('/api/hello', (request, response) => {
+app.post('/api/hello', (request, response) => {
   const { username, useremail } = request.query;
   if (username && useremail) {
     response.status(200).send(`
