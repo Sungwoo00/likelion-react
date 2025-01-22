@@ -4,5 +4,19 @@
     "name": "성우",
     "email": "sungwoo@naver.com",
     "password": "$2b$09$JHpFl7QjwqUgMLfIYfSm4OMJjtV5SzxUerSkq4EzRFyAKYfQK9xdK"
+  },
+  {
+    "id": "8cf47028-402a-44c0-b43c-e44781d8880b",
+    "name": "이삼정",
+    "email": "23j@designer.io",
+    "profileImage": "/files/photo-02.jpg",
+    "password": "$2b$09$cQduZLwNSu/OIkYWB2ZTheTtpvlTV9qmKeBCbz2fP6BjsyZqlu4se"
+  },
+  {
+    "id": "2b6436d4-d418-42cc-b384-feb72ddc8875",
+    "name": "dltjddn",
+    "email": "leesungwoo@naver.com",
+    "profileImage": "",
+    "password": "$2b$09$GXTxCm03a5Suill45qu00OWmCXcOPzH.EcyXmhNbT74GONZ.ywK6."
   }
 ]
