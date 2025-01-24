@@ -1,3 +1,4 @@
+import cors from 'cors';
 import express from 'express';
 import { resolve } from 'node:path';
 import fileUpload from 'express-fileupload';
