@@ -18,26 +18,5 @@
     "email": "leesungwoo@naver.com",
     "profileImage": "",
     "password": "$2b$09$GXTxCm03a5Suill45qu00OWmCXcOPzH.EcyXmhNbT74GONZ.ywK6."
-  },
-  {
-    "id": "538d8cc4-b774-4521-a35f-895a046adfab",
-    "name": "정수진",
-    "email": "be82@naver.com",
-    "profileImage": "/files/proflie-03.jpg",
-    "password": "$2b$09$du4nk5jfDaUqILFCql9hyuI63RMIm5Wk2746Imlzo4ycjhMwl.akq"
-  },
-  {
-    "id": "f52863f2-9b7e-4504-ad75-3efc4a3dd306",
-    "name": "임시완",
-    "email": "lim@kakao.io",
-    "profileImage": "/files/proflie-01.jpg",
-    "password": "$2b$09$HjU4FRaBIpkkOSmFe2fPYuuSh7w.QtuxAUpamakApDSjXk.x.6oWu"
-  },
-  {
-    "id": "36a4bc24-4e45-44fd-95a2-ea7e8623ba23",
-    "name": "최강인",
-    "email": "choi@daum.net",
-    "profileImage": "/files/proflie-04.jpg",
-    "password": "$2b$09$orHe6vKT5cwq9bHqj3qgu.HM3RZd1mw0eNrWTxE6EjEl/4CmIN2T6"
   }
 ]
