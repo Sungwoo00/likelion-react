@@ -32,5 +32,12 @@
     "email": "lim@kakao.io",
     "profileImage": "/files/proflie-01.jpg",
     "password": "$2b$09$HjU4FRaBIpkkOSmFe2fPYuuSh7w.QtuxAUpamakApDSjXk.x.6oWu"
+  },
+  {
+    "id": "36a4bc24-4e45-44fd-95a2-ea7e8623ba23",
+    "name": "최강인",
+    "email": "choi@daum.net",
+    "profileImage": "/files/proflie-04.jpg",
+    "password": "$2b$09$orHe6vKT5cwq9bHqj3qgu.HM3RZd1mw0eNrWTxE6EjEl/4CmIN2T6"
   }
 ]
