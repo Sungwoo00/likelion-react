@@ -1,5 +1,16 @@
-function HomeworkSignUp() {
-  return <form>회원가입 폼</form>;
-}
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import '@/styles/main.css';
+import App from '@/app';
 
-export default HomeworkSignUp;
+const root = document.getElementById('root');
+
+if (root) {
+  createRoot(root, {
+    identifierPrefix: 'euid-',
+  }).render(
+    <StrictMode>
+      <App />
+    </StrictMode>
+  );
+}
