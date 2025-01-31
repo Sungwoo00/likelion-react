@@ -3,7 +3,7 @@
   padding: 8px 4px 8px 12px;
   flex-flow: column;
   gap: 8px;
-  border-bottom: 0.5px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.30);
 
   label {
     color: #000;
@@ -18,7 +18,7 @@
     button {
       --size: 24px;
 
-      display: flex;
+      /* display: flex;
       justify-content: center;
       align-items: center;
       inline-size: var(--size);
@@ -27,11 +27,11 @@
       border-radius: 6px;
       border: 0;
       padding: 0;
-      line-height: 1;
+      line-height: 1; */
 
-      &:hover:not(:disabled, &[aria-disabled='true']) {
+      /* &:hover:not(:disabled, &[aria-disabled="true"]) {
         background-color: rgba(0 0 0 / 10%);
-      }
+      } */
     }
   }
 
@@ -43,7 +43,7 @@
     padding: 2px 4px;
 
     &::placeholder {
-      color: rgba(0, 0, 0, 0.5);
+      color: rgba(0, 0, 0, 0.50);
       font-size: 1.4rem;
       line-height: 1;
     }
