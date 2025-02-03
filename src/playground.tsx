@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import Nav from '@/homework/components/nav';
 import { getUIView, type UIView } from '@/components/lib/ui-views';
 import StateManagement from '@/homework/pages/state-management';
