@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import Nav from '@/homework/components/nav';
-import { getUIView, type UIView } from '@/components/lib/ui-views';
+import { getUIView } from '@/components/lib/ui-views';
 import StateManagement from '@/homework/pages/state-management';
 import SignInForm from '@/homework/pages/sign-in';
 import SignUpForm from '@/homework/pages/sign-up';
+import TicTacToe from './homework/pages/tic-tac-toe';
 
-const getViewElement = (uiView: UIView) => {
+const getViewElement = (uiView: string) => {
   let viewElement: React.ReactElement | null = null;
-  
+
   switch (uiView) {
     case 'signin': {
       viewElement = <SignInForm />;
@@ -21,13 +22,17 @@ const getViewElement = (uiView: UIView) => {
       viewElement = <StateManagement />;
       break;
     }
+    case 'tic-tac-toe': {
+      viewElement = <TicTacToe />;
+      break;
+    }
   }
 
   return viewElement;
-}
+};
 
 function Playground() {
-  const [uiView] = useState<UIView>(getUIView);
+  const [uiView] = useState<string>(getUIView);
   const viewElement = getViewElement(uiView);
 
   return (
