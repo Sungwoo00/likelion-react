@@ -62,7 +62,7 @@ function AccordionList({ title }: AccordionListProps) {
     });
 
     setItems(nextItems);
-  };
+  };        
 
   return (
     <article className={tm('flex flex-col space-y-4 items-center', 'mt-10')}>

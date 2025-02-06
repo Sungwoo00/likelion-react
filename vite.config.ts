@@ -10,6 +10,16 @@ const viteConfig = defineConfig((env) => {
     plugins: [
       react({
         jsxRuntime: 'automatic',
+        babel: {
+          plugins: [
+            [
+              '@locator/bablel-jsx/disx',
+              {
+                env:'development'
+              }
+            ]
+          ]
+        }
       }),
       tailwindcss(),
     ],
