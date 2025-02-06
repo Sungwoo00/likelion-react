@@ -13,7 +13,7 @@ const viteConfig = defineConfig((env) => {
         babel: {
           plugins: [
             [
-              '@locator/bablel-jsx/disx',
+              '@locator/babel-jsx/dist',
               {
                 env:'development'
               }

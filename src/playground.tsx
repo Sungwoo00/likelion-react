@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Nav from '@/homework/components/nav';
+import Nav from '@/homework/components/nav/index';
 import { getUIView } from '@/components/lib/ui-views';
 import StateManagement from '@/homework/pages/state-management';
 import ErrorBoundaryDemo from './homework/pages/error-boundary';
