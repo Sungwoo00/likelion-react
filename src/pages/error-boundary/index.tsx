@@ -1,23 +1,50 @@
-import ErrorBoundary from '@/components/error-boundary';
-import { tm } from '@/utils/tw-merge';
-import Wrapper from './wrapper';
+import { Component, type ErrorInfo } from 'react';
 
-function ErrorBoundaryDemo() {
-  return (
-    <section className={tm('flex flex-col gap-2 mt-6')}>
-      <h2 className={tm('text-2xl')}>오류 경계 (Error Boundary)</h2>
-      <p className={tm('text-sm')}>
-        오류 경계는 함수 컴포넌트로 구현 불가능합니다.
-        <br />
-        오직 클래스 컴포넌트로만 구현 가능합니다.
-      </p>
-
-      {/* 오류 발생 가능성이 있는 컴포넌트 집합 */}
-      <ErrorBoundary>
-        <Wrapper />
-      </ErrorBoundary>
-    </section>
-  );
+interface Props {
+  children: React.ReactNode;
 }
 
-export default ErrorBoundaryDemo;
+interface State {
+  error: null | Error;
+  errorInfo: null | ErrorInfo;
+  hasError: boolean;
+}
+
+class ErrorBoundary extends Component<Props, State> {
+  state: State = {
+    error: null,
+    errorInfo: null,
+    hasError: false,
+  };
+
+  // 오류 감지하기 위한 라이프 사이클 메서드
+  static getDerivedStateFromError(error: Error) {
+    // 상태 업데이트
+    return {
+      hasError: true,
+      error,
+    };
+  }
+  // componentDidCatch(error, errorInfo)
+
+  render() {
+    // 오류가 있으면
+    // 대체(fallback) 컴포넌트를 렌더링
+    if (this.state.hasError) {
+      const { error } = this.state;
+
+      return (
+        <div role="alert">
+          <h2>{error?.name} 오류 발생!</h2>
+          <p>{error?.message}</p>
+        </div>
+      );
+    }
+
+    // 오류가 없으면
+    // 하위 컴포넌트 렌더링
+    return this.props.children;
+  }
+}
+
+export default ErrorBoundary;
