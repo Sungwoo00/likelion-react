@@ -1,5 +1,5 @@
 import { tm } from '@/utils/tw-merge';
-import Counter from '../components/counter';
+import Counter from './components/counter';
 
 function LifecycleDemo() {
   return (
