@@ -1,4 +1,4 @@
-import { useId, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { tm } from '@/utils/tw-merge';
 import { deleteQueryParam, setQueryParam } from '../utils/query-param';
 
@@ -6,7 +6,8 @@ import { deleteQueryParam, setQueryParam } from '../utils/query-param';
 const getQueryString = () => decodeURIComponent(location.search);
 
 // string으로 구성된 배열을 문자 값으로 변환하는 함수
-const convertQueryString = (queryArray: string[]) => queryArray.filter(Boolean).join(' ').trim();
+const convertQueryString = (queryArray: string[]) =>
+  queryArray.filter(Boolean).join(' ').trim();
 
 interface SearchFormProps {
   query: string;
@@ -18,7 +19,10 @@ function SearchForm({ query, setQuery }: SearchFormProps) {
   const searchInputId = useId();
 
   // [파생된 상태]
-  const words = query.split(' ').filter(Boolean).map((word) => word.toLowerCase().trim());
+  const words = query
+    .split(' ')
+    .filter(Boolean)
+    .map((word) => word.toLowerCase().trim());
   const isEnabledSearch = words.length > 0;
 
   const checkPeace = words.includes('평화');
@@ -27,7 +31,9 @@ function SearchForm({ query, setQuery }: SearchFormProps) {
 
   // [이벤트 핸들러]
   const handleCheck = (tag: string, nextIsChecked: boolean) => {
-    const newWords = nextIsChecked ? [...words, tag] : words.filter(word => word !== tag);
+    const newWords = nextIsChecked
+      ? [...words, tag]
+      : words.filter((word) => word !== tag);
     const nextQuery = convertQueryString(newWords);
     setQuery(nextQuery);
   };
@@ -45,6 +51,20 @@ function SearchForm({ query, setQuery }: SearchFormProps) {
     }
   };
 
+  const searchRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const clearId = setTimeout(() => {
+      if (searchRef.current) {
+        searchRef.current.focus();
+      }
+    }, 900);
+
+    return () => {
+      clearTimeout(clearId);
+    };
+  });
+
   return (
     <>
       <output className="bg-react text-white px-4 py-2 rounded-full text-xs font-mono">
@@ -57,6 +77,7 @@ function SearchForm({ query, setQuery }: SearchFormProps) {
         </label>
         <div className={tm('flex gap-1')}>
           <input
+            ref={searchRef}
             type="search"
             name="query"
             id={searchInputId}
