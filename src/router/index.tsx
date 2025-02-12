@@ -1,3 +1,4 @@
+import MemoryComponentDataPage from '@/pages/memory-components';
 import StateManagement from '@/pages/state-management';
 import ErrorBoundaryDemo from '@/pages/error-boundary';
 import SideEffectDemo from '@/pages/side-effect';
@@ -12,12 +13,25 @@ import NotFound from '@/pages/not-found';
 // 내비게이션 리스트 데이터
 
 export const navList = [
+  {
+    path: 'memory-component-data',
+    text: '데이터 메모리',
+    element: <MemoryComponentDataPage />,
+  },
   { path: 'search-list', text: '검색 리스트', element: <SearchListPage /> },
   { path: 'side-effect', text: '이펙트 처리', element: <SideEffectDemo /> },
-  { path: 'error-boundary', text: '에러 바운더리', element: <ErrorBoundaryDemo /> },
+  {
+    path: 'error-boundary',
+    text: '에러 바운더리',
+    element: <ErrorBoundaryDemo />,
+  },
   { path: 'lifecycles', text: '라이프 사이클', element: <LifecycleDemo /> },
   { path: 'tic-tac-toe', text: '틱택토', element: <TicTacToe /> },
-  { path: 'state-management', text: '상태 관리 전략', element: <StateManagement /> },
+  {
+    path: 'state-management',
+    text: '상태 관리 전략',
+    element: <StateManagement />,
+  },
   { path: 'signup', text: '회원가입', element: <SignUpForm /> },
   { path: 'signin', text: '로그인', element: <SignInForm /> },
 ];
