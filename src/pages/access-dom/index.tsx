@@ -1,11 +1,23 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import SearchInput from './components/search-input';
 import TiltBox from './components/tilt-box';
+
+//useLayoutEffect 훅은 브라우저 화면을 다시 그리는 것을 막지만, 
+//useEffect 훅은 브라우저를 막지 않습니다.
+// useLayoutEffect 훅의 목적은 레이아웃 정보를 사용해 컴포넌트를 렌더링하는 것입니다.
 
 function AccessDOMPage() {
   const [isParse, setIsParse] = useState(false);
 
   const searchInputRef = useRef<HTMLInputElement>(null);
+
+  useLayoutEffect(() => {
+    console.log('layout effect');
+  });
+
+  useEffect(() => {
+    console.log('effect');
+  });
 
   useEffect(() => {
     const searchInput = searchInputRef.current;
