@@ -1,25 +1,50 @@
-import { useState } from 'react';
-import type { MemoItem } from '../lib/supabase-client';
-import SearchedList from './searched-list';
-import CreateForm from './create-form';
-import SearchForm from './search-form';
+import { tm } from '@/utils/tw-merge';
+import { EditOne, TrashOne } from '@mynaui/icons-react';
+import type { MemoItem as MemoItemType } from '../lib/supabase-client';
+import { deleteMemoItem } from '../lib/api';
 
-interface MemoListProps {
-  items: MemoItem[];
+interface MemoItemProps {
+  item: MemoItemType;
 }
 
-function MemoList({ items }: MemoListProps) {
-  const [search, setSearch] = useState('');
+function MemoItem({ item }: MemoItemProps) {
+  const handleDelete = async () => {
+    await deleteMemoItem(item.id);
+  };
 
   return (
-    <div>
-      <CreateForm />
-      <hr className="my-5 border-black/40" />
-      <SearchForm setSearch={setSearch} />
-      <hr className="my-5 border-black/40" />
-      <SearchedList items={items} search={search} />
-    </div>
+    <li className="flex flex-col gap-1.5 p-4 bg-react text-white rounded-sm">
+      <h3 className="font-light tracking-wide text-xl text-sky-500">
+        {item.title}
+      </h3>
+      <p className="text-sm text-slate-400 leading-relaxed">{item.content}</p>
+      <div role="group" className="flex gap-1">
+        <button
+          type="button"
+          aria-label="수정"
+          title="수정"
+          className={tm(
+            'cursor-pointer',
+            'size-5 opacity-75 hover:opacity-100'
+          )}
+        >
+          <EditOne size={20} />
+          {/* <EditOneSolid size={20} /> */}
+        </button>
+        <button
+          type="button"
+          aria-label="삭제"
+          onClick={handleDelete}
+          className={tm(
+            'cursor-pointer',
+            'size-5 opacity-75 hover:opacity-100'
+          )}
+        >
+          <TrashOne size={20} />
+        </button>
+      </div>
+    </li>
   );
 }
 
-export default MemoList;
+export default MemoItem;
