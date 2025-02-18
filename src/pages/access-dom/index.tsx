@@ -1,12 +1,12 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import SearchInput from './components/search-input';
 import TiltBox from './components/tilt-box';
-
-//useLayoutEffect 훅은 브라우저 화면을 다시 그리는 것을 막지만, 
-//useEffect 훅은 브라우저를 막지 않습니다.
-// useLayoutEffect 훅의 목적은 레이아웃 정보를 사용해 컴포넌트를 렌더링하는 것입니다.
+import { tm } from '@/utils/tw-merge';
+import useDocumentTitle from '@/hooks/use-document.title';
 
 function AccessDOMPage() {
+  useDocumentTitle('DOM 접근/조작');
+
   const [isParse, setIsParse] = useState(false);
 
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -28,8 +28,8 @@ function AccessDOMPage() {
       // console.log(searchInput);
 
       setTimeout(() => {
-        if (searchInputRef.current) {
-          searchInputRef.current.focus();
+        if (searchInput) {
+          searchInput.focus();
         }
       }, 1000);
     }
@@ -37,7 +37,7 @@ function AccessDOMPage() {
 
   return (
     <section>
-      <h2 className="text-2xl text-react font-medium mb-4">
+      <h2 className="text-2xl text-react font-medium mb-3">
         <abbr
           title="Document Object Model"
           className="cursor-help no-underline"
@@ -47,26 +47,42 @@ function AccessDOMPage() {
         접근/조작
       </h2>
 
-      <button
-        type="button"
-        onClick={() => {
-          setIsParse((p) => !p);
-        }}
-      >
-        DOM 용어 풀이
-      </button>
-
-      <form className="my-10 flex">
-        {/* React 18 - React.forwardRef() 😥 */}
-        {/* React 19+ - ref 😀 */}
-        <SearchInput ref={searchInputRef} />
-      </form>
+      <div className="flex items-center gap-3 mb-2">
+        <button
+          type="button"
+          onClick={() => {
+            setIsParse((p) => !p);
+          }}
+          className={tm(
+            'order-1',
+            'cursor-pointer',
+            'inline-flex justify-center',
+            'py-2 px-5 rounded-full',
+            'bg-black text-white text-xs font-extrabold',
+            'active:scale-97 active:opacity-80'
+          )}
+        >
+          DOM 용어 풀이
+        </button>
+        <form className="my-2 flex">
+          {/* React 18  - React.forwardRef() 😥 */}
+          {/* React 19+ - ref 😀 */}
+          <SearchInput ref={searchInputRef} />
+        </form>
+      </div>
 
       <div className="flex flex-wrap">
         {Array(12)
           .fill(null)
           .map((_, index) => (
-            <TiltBox key={index}>{index + 1}</TiltBox>
+            <TiltBox key={index} className="overflow-hidden">
+              <img
+                className="object-cover scale-280 hover:scale-200 transition-all ease-in-out duration-700"
+                src={`/furnitures/furniture-${index + 1}.jpg`}
+                alt=""
+              />
+              {/* {index + 1} */}
+            </TiltBox>
           ))}
       </div>
     </section>
