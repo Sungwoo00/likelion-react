@@ -49,10 +49,14 @@ export default tseslint.config(
       'jsx-a11y/click-events-have-key-events': 'off',
       '@typescript-eslint/no-unsafe-assignment': 'off',
       '@typescript-eslint/no-unsafe-call': 'off',
-      // '@typescript-eslint/consistent-type-definitions': 'error',
+      '@typescript-eslint/no-floating-promises': 'off',
+      '@typescript-eslint/no-misused-promises': 'off',
       'react-refresh/only-export-components': [
         'warn',
-        { allowConstantExport: true },
+        {
+          allowConstantExport: true,
+          allowExportNames: ['navList', 'useLevel', 'LevelContext'],
+        },
       ],
     },
   }
