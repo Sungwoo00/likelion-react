@@ -1,3 +1,4 @@
+import Title from '@/components/title';
 import AccordionList from './components/accordion-list';
 
 function StateManagement() {
@@ -14,9 +15,12 @@ export default StateManagement;
 
 function DoNotRenderUnnecessary() {
   return (
-    <article>
-      <h3>나는 상태 공유를 원하지 않아요~</h3>
-      <p>상태 공유해주지 마세요. 저는 다시 렌더링 되고 싶지 않답니다. 🥲</p>
-    </article>
+    <>
+      <Title>React 상태 관리</Title>
+      <article>
+        <h3>나는 상태 공유를 원하지 않아요~</h3>
+        <p>상태 공유해주지 마세요. 저는 다시 렌더링 되고 싶지 않답니다. 🥲</p>
+      </article>
+    </>
   );
 }
