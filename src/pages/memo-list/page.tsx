@@ -73,12 +73,15 @@ function MemoListPage() {
   }, []);
 
   return (
-    <section>
-      <h1 className="sr-only">메모 리스트 (with Supabase)</h1>
-      {loading && <Loading />}
-      {error && <div role="alert">{error.message}</div>}
-      {data && <MemoList items={data} />}
-    </section>
+    <>
+      <title>메모리스트 with Supabase | 리액트 플레이그라운드</title>
+      <section>
+        <h1 className="sr-only">메모 리스트 (with Supabase)</h1>
+        {loading && <Loading />}
+        {error && <div role="alert">{error.message}</div>}
+        {data && <MemoList items={data} />}
+      </section>
+    </>
   );
 }
 
