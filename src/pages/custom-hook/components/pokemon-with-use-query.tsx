@@ -1,15 +1,22 @@
 import { tm } from '@/utils/tw-merge';
 import Loading from '@/pages/memo-list/components/loading';
-import { useFetchData } from '@/hooks/use-fetch-data';
-import type { Pokemon as PokemonSingle } from '../types';
+import type { Pokemon } from '../types';
+import useQuery from '@/hooks/use-query';
 
-function Pokemon() {
+function PokemonWithUseQuery() {
   // 포켓몬 개별 정보 가져오기
   // 'https://pokeapi.co/api/v2/pokemon/1'
 
-  const { loading, error, data } = useFetchData<PokemonSingle>(
-    'https://pokeapi.co/api/v2/pokemon/45'
-  );
+  const {
+    isLoading: loading,
+    error,
+    data,
+  } = useQuery<Pokemon>({
+    queryKey: '@pokemon/pikachu',
+    queryFn: () => fetch('https://pokeapi.co/api/v2/pokemon/25'),
+  });
+
+  console.log(data);
 
   return (
     <figure
@@ -28,6 +35,7 @@ function Pokemon() {
         <img
           src={data.sprites.front_default}
           alt={data.name}
+          title={data.name}
           className="size-40"
         />
       )}
@@ -35,4 +43,4 @@ function Pokemon() {
   );
 }
 
-export default Pokemon;
+export default PokemonWithUseQuery;
