@@ -13,7 +13,7 @@ function UnderstandingContextPage() {
           <Box> {/* 2 */}
             <Box level={2}> {/* 2 */}
               <Box> {/* 3 */}
-                <Box>Box Level</Box> {/* 4 */}
+                <Box></Box> {/* 4 */}
               </Box>
             </Box>
           </Box>

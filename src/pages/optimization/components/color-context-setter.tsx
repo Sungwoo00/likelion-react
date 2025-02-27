@@ -1,4 +1,3 @@
-
 import { memo } from 'react';
 
 function ColorContextSetter({
@@ -9,7 +8,7 @@ function ColorContextSetter({
   return (
     <button
       type="button"
-      className="my-2 p-3 bg-red-600 font-bold"
+      className="cursor-pointer my-2 p-3 bg-black text-white font-bold rounded-sm"
       onClick={() => setColor(getRandomHexColor())}
     >
       change color
@@ -19,7 +18,7 @@ function ColorContextSetter({
 
 export default memo(ColorContextSetter);
 
-export function getRandomHexColor() {
+function getRandomHexColor() {
   const letters = '0123456789ABCDEF';
   let color = '#';
   for (let i = 0; i < 6; i++) {
